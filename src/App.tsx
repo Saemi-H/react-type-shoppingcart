@@ -23,6 +23,9 @@ const getProducts = async(): Promise<CartItemType[]> =>
     await (await fetch('https://fakestoreapi.com/products')).json(); //await for json
 
 const App = () => {
+    //add Cart states
+    const [cartOpen, setCartOpen] = useState(false);
+    const [cartItems, setCartItems] = useState([] as CartItemType[]);
     // add React Query fetching data
     const { data, isLoading, error } = useQuery(["products"],() => getProducts());
 
@@ -42,7 +45,7 @@ const App = () => {
             <Row gutter={{ xs: 4, sm: 5, md: 6, lg: 7 }}>
                 {
                     data?.map((item:CartItemType) => (
-                        <Col key={item.id} className="gutter-row">
+                        <Col key={item.id} span={3}>
                             <Item item={item} handleAddToCart={handleAddToCart} />
                         </Col>
                     ))
