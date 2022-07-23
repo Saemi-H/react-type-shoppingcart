@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
-
 // components
 import { Drawer, Progress, Grid, Badge } from 'antd';
 import { ShoppingCartOutlined } from "@ant-design/icons";
@@ -20,13 +19,27 @@ export type CartItemType = {
 }
 
 const getProducts = async(): Promise<CartItemType[]> => 
-    await(await fetch('https://fakestoreapi.com/products')).json(); //await for json
+    await (await fetch('https://fakestoreapi.com/products')).json(); //await for json
+
 const App = () => {
     // add React Query fetching data
-    const { data, isLoading, error } = useQuery("products", getProducts)
+    const { data, isLoading, error } = useQuery(["products"],() => getProducts());
+
+    console.log(data);
+
+    const getTotalItems = () => null;
+    const handleAddToCart = () => null;
+    const handleRemoveFromCart = () => null;
+
+    //when loading
+    if(isLoading) return <Progress />
+    //when error
+    if(error) return <div>Something went wrong.....</div>
+
     return (
         <div className="App">
             start
+            
         </div>
     );
 }
