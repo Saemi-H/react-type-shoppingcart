@@ -6,7 +6,7 @@ import { Drawer, Progress, Col, Row, Badge } from 'antd';
 import { ShoppingCartOutlined } from "@ant-design/icons";
 
 //styles
-import { Wrapper } from "./App.styles";
+import { Wrapper, StyledButton } from "./App.styles";
 
 //types
 export type CartItemType = {
@@ -31,7 +31,9 @@ const App = () => {
 
     console.log(data);
 
-    const getTotalItems = () => null;
+    //total amount of items
+    const getTotalItems = (items: CartItemType[]) => 
+        items.reduce((prev: number, item) => prev + item.amount, 0);
     const handleAddToCart = (clickedItem: CartItemType) => null;
     const handleRemoveFromCart = () => null;
 
@@ -42,10 +44,18 @@ const App = () => {
 
     return (
         <Wrapper>
-            <Row gutter={{ xs: 4, sm: 5, md: 6, lg: 7 }}>
+            <Drawer placement="left"  width={500} visible={cartOpen} onClose={()=> setCartOpen(false)}>
+                cart goes here
+            </Drawer>
+            <StyledButton onClick={() => setCartOpen(true)}>
+                <Badge count={getTotalItems(cartItems)}>
+                    <ShoppingCartOutlined />
+                </Badge>
+            </StyledButton>
+            <Row gutter={[16, 16]}>
                 {
                     data?.map((item:CartItemType) => (
-                        <Col key={item.id} span={3}>
+                        <Col key={item.id} span={6}>
                             <Item item={item} handleAddToCart={handleAddToCart} />
                         </Col>
                     ))
