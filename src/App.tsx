@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 // components
 import Item from "./Item/IItem";
+import Cart from "./Cart/Cart";
 import { Drawer, Progress, Col, Row, Badge } from 'antd';
 import { ShoppingCartOutlined } from "@ant-design/icons";
 
@@ -45,7 +46,11 @@ const App = () => {
     return (
         <Wrapper>
             <Drawer placement="left"  width={500} visible={cartOpen} onClose={()=> setCartOpen(false)}>
-                cart goes here
+                <Cart 
+                cartItems={cartItems}
+                addToCart={handleAddToCart}
+                removeFromCart={handleRemoveFromCart}
+                />
             </Drawer>
             <StyledButton onClick={() => setCartOpen(true)}>
                 <Badge count={getTotalItems(cartItems)}>
