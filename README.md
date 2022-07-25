@@ -1,4 +1,4 @@
-### Project building with react &  typescript
+### Practice building with react &  typescript
 
 ## Dependencies
 - React Query
