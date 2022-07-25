@@ -1,4 +1,4 @@
-### Project building with react &  typescript
+### Practice react &  typescript
 
 ## Dependencies
 - React Query
@@ -11,3 +11,7 @@
 
 # declared module
 - 'react-query'
+
+#to be fixed
+- UI: Drawer
+- UI: Grid
