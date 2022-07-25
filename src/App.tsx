@@ -30,8 +30,6 @@ const App = () => {
     // add React Query fetching data
     const { data, isLoading, error } = useQuery(["products"],() => getProducts());
 
-    console.log(data);
-
     //total amount of items
     const getTotalItems = (items: CartItemType[]) => 
         items.reduce((prev: number, item) => prev + item.amount, 0);
