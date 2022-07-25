@@ -4,11 +4,10 @@
 - React Query
 - Antd Design icons
 - Styled-components 
--Fake Store Api
 
 ## References
-https://www.youtube.com/watch?v=sfmL6bGbiN8&ab_channel=freeCodeCamp.org
-https://fakestoreapi.com/
+- https://www.youtube.com/watch?v=sfmL6bGbiN8&ab_channel=freeCodeCamp.org
+- https://fakestoreapi.com/
 
 # declared module
-- 'react-query';# react-type-shoppingcart
+- 'react-query'
