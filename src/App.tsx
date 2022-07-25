@@ -5,6 +5,7 @@ import Item from "./Item/IItem";
 import Cart from "./Cart/Cart";
 import { Drawer, Progress, Col, Row, Badge } from 'antd';
 import { ShoppingCartOutlined } from "@ant-design/icons";
+import { getProducts } from "./api/apis";
 
 //styles
 import { Wrapper, StyledButton } from "./App.styles";
@@ -20,8 +21,7 @@ export type CartItemType = {
     amount: number; //added customed info
 }
 
-const getProducts = async(): Promise<CartItemType[]> => 
-    await (await fetch('https://fakestoreapi.com/products')).json(); //await for json
+
 
 const App = () => {
     //add Cart states
