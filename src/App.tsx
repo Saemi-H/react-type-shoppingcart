@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
+import 'antd/dist/antd.less';
+
 // components
 import Item from "./Item/IItem";
 import Cart from "./Cart/Cart";
@@ -9,6 +11,7 @@ import { getProducts } from "./api/apis";
 
 //styles
 import { Wrapper, StyledButton } from "./App.styles";
+import './App.css';
 
 //types
 export type CartItemType = {
@@ -82,10 +85,10 @@ const App = () => {
                     <ShoppingCartOutlined />
                 </Badge>
             </StyledButton>
-            <Row gutter={[16, 16]}>
+            <Row>
                 {
                     data?.map((item:CartItemType) => (
-                        <Col key={item.id} span={6}>
+                        <Col key={item.id} span={8}>
                             <Item item={item} handleAddToCart={handleAddToCart} />
                         </Col>
                     ))

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Button } from 'antd';
+import 'antd/dist/antd.less';
+// todo: find the way to import antd design css
 
 export const Wrapper = styled.div`
     margin: 40px;
