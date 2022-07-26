@@ -12,6 +12,3 @@
 # declared module
 - 'react-query'
 
-# to be fixed
-- UI: Drawer
-- UI: Grid
